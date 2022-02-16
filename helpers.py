@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import pandas as pd
-import cv2 as cv
+#import cv2 as cv
 import pickle
 import sqlite3
 #import matplotlib as plt
@@ -14,7 +14,7 @@ def logo():
     image = Image.open(logo)
     img_logo = np.array(image) 
     img_shape = (150, 100)
-    img_logo = cv.resize(img_logo, img_shape, interpolation=cv.INTER_AREA)
+    #img_logo = cv.resize(img_logo, img_shape, interpolation=cv.INTER_AREA)
     st.sidebar.image(img_logo)
 logo()
 # == Home =======================================================================================
