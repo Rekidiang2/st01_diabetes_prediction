@@ -28,7 +28,7 @@ def home():
    using certain symptom measurements.
     """)
 
-    image = Image.open('images/diabetes_cover.png')
+    image = Image.open('images/diabete_cover.png')
     st.image(image, caption='Machine Learning Project by Rekidiang Data', use_column_width=True)
 
     st.markdown("""
