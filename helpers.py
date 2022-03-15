@@ -10,12 +10,15 @@ import sqlite3
 # == Logo
 def logo():
     # source: jason-leung from unsplash
-    logo = "images/rkd_logo_fin.png"
-    image = Image.open(logo)
-    img_logo = np.array(image) 
-    img_shape = (150, 100)
+    logo = "images/ktlogo3.png"
+    logo = Image.open(logo)
+    size=(200,200)
+    #resize image
+    logo = logo.resize(size)
+    #img_logo = np.array(image) 
+    #img_shape = (150, 100)
     #img_logo = cv.resize(img_logo, img_shape, interpolation=cv.INTER_AREA)
-    st.sidebar.image(img_logo)
+    st.sidebar.image(logo)
 logo()
 # == Home =======================================================================================
 def home():
@@ -25,10 +28,7 @@ def home():
    using certain symptom measurements.
     """)
 
-    image = Image.open('images/diabetes_img.png')
-    image = np.array(image) 
-    img_shape = (120, 30)
-    image = cv.resize(image, img_shape, interpolation=cv.INTER_AREA)
+    image = Image.open('images/diabetes_cover.png')
     st.image(image, caption='Machine Learning Project by Rekidiang Data', use_column_width=True)
 
     st.markdown("""
