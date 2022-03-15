@@ -1,5 +1,5 @@
 import streamlit as st
-from helpers import home, app, analysis, all_data, about, footer
+from helpers import home, app, analysis, all_data, about, footer, logo
 
 # Sidebar Configuration
 st.markdown(
@@ -15,6 +15,7 @@ st.markdown(
 )
 
 def main():
+    logo()
     # basic layout
     menu = ["Home", "Prediction", "Prediction Result",  "Analysis", "About"]
     choice = st.sidebar.radio("Menu", menu)
