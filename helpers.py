@@ -12,12 +12,9 @@ def logo():
     # source: jason-leung from unsplash
     logo = "images/ktlogo3.png"
     logo = Image.open(logo)
-    size=(200,200)
+    size=(100,100)
     #resize image
     logo = logo.resize(size)
-    #img_logo = np.array(image) 
-    #img_shape = (150, 100)
-    #img_logo = cv.resize(img_logo, img_shape, interpolation=cv.INTER_AREA)
     st.sidebar.image(logo)
 
 # == Home =======================================================================================
