@@ -331,8 +331,7 @@ def footer():
             <div style="background-color:blue;padding:1px">
             <h4 style="color:white;text-align:center;">Kiese Diangebeni Reagan </h4>
             <p style="color:red;text-align:center;"> = Data Science Analyst =</p>
-            <p style="color:white;text-align:center;">www.kiese.tech, 
-            E-mail : contact@kiesediangebeni.com</p>
+            <h3 style="color:white;text-align:center;">www.kiese.tech</h3>
             
             <p style="color:red;text-align:center;">
             <a href="https://twitter.com/ReaganKiese">Twitter</a> - 
