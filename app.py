@@ -24,7 +24,7 @@ def main():
     html_temp = """
     <div style="background-color:blue;padding:0.5px">
     <h1 style="color:white;text-align:center;">Diabetes Prediction </h1>
-    <h3 style="color:green;text-align:center;">Predict pre-diabetic stage </h3>
+    <h3 style="color:red;text-align:center;">Predict pre-diabetic stage </h3>
     </div><br>"""
     st.markdown(html_temp, unsafe_allow_html=True)
     st.markdown('<style>h1{color: blue;}</style>', unsafe_allow_html=True)

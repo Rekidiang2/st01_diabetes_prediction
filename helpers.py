@@ -322,7 +322,7 @@ def about():
     st.markdown("""
     ### author
 
-    I'm a data and technology passionate person, Artificial Intelligence enthusiast. For more information about me go to my **Website** and **Social Network** platform (👇)
+    I’m  Data and technology passionate person, Artificial Intelligence enthusiast, lifelong learner. Since my childhood I was interested to technology and science, but I didn’t get access to it, by the lack of resource and opportunities hopefully grace to massive learning resource available on the Internet I’m getting close to my dream. My pleasure is to motivate, guide and teach people with less or without resource accomplish their dream in the world of technology specially kids and young. For more information about me go to my **Website** and **Social Network** platform (👇)
     """)
 
 # == Footer ==========================================================================================
@@ -330,11 +330,11 @@ def footer():
     footerr = """
             <div style="background-color:blue;padding:1px">
             <h4 style="color:white;text-align:center;">Kiese Diangebeni Reagan </h4>
-            <p style="color:red;text-align:center;"> = Datalogue Date Passionate =</p>
-            <p style="color:white;text-align:center;">www.kiesediangebeni.com, 
+            <p style="color:red;text-align:center;"> = Data Science Analyst =</p>
+            <p style="color:white;text-align:center;">www.kiese.tech, 
             E-mail : contact@kiesediangebeni.com</p>
             
-            <p style="color:black;text-align:center;">
+            <p style="color:red;text-align:center;">
             <a href="https://twitter.com/ReaganKiese">Twitter</a> - 
             <a href="">Linkedin</a> - 
             <a href="https://github.com/RekidiangData-S">Github</a> - 
