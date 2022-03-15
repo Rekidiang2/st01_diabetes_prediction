@@ -19,7 +19,7 @@ def logo():
     #img_shape = (150, 100)
     #img_logo = cv.resize(img_logo, img_shape, interpolation=cv.INTER_AREA)
     st.sidebar.image(logo)
-logo()
+
 # == Home =======================================================================================
 def home():
     st.markdown("""
