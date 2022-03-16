@@ -45,46 +45,56 @@ def app():
 
 
     # Data input --------------------------------------------------------------------------
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        patientID = st.text_input("Patient ID")
-    with col2:
-        name = st.text_input("Patient Name")
-    with col3:
-        age = st.text_input("Age")
-       
-    with col4:
-        # user_input = st.text_input("Patient Name")
-        gender = st.radio('Gender', ['Female', 'Male'])
+    def input_feature():
 
-    col5, col6 = st.columns(2)
-    with col5:
-        preg = st.slider('Number of Pregnancies', 0, 20, 0)
-    with col6:
-        insu = st.slider('Insulin', 0.0, 700.0, 220.0)
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            patientID = st.text_input("Patient ID")
+        with col2:
+            name = st.text_input("Patient Name")
+        with col3:
+            age = st.text_input("Age")
+        
+        with col4:
+            # user_input = st.text_input("Patient Name")
+            gender = st.radio('Gender', ['Female', 'Male'])
 
-    col7, col8 = st.columns(2)
-    with col7:
-        gluco = st.slider('Glucose', 0, 200, 110)
-    with col8:
-        bmi = st.slider('BMI', 0.0, 60.0, 30.0)
-    col9, col10 = st.columns(2)
-    with col9:
-        dpf = st.slider('Diabetes Pedigree Function', 0.0, 2.0, 0.08)
-    with col10:
-        skin = st.slider('Skin Thickness', 1, 95, 1)
-    col9, col10 = st.columns(2)
-    with col9:
-        bp = st.slider('Blood Pressure', 0, 100, 70)
+        col5, col6 = st.columns(2)
+        with col5:
+            preg = st.slider('Number of Pregnancies', 0, 20, 0)
+        with col6:
+            insu = st.slider('Insulin', 0.0, 700.0, 220.0)
 
-    # DATA
-    # st.write(patientID, name, age, gender, preg1, insu, gluco, bmi, dpf, skin, bp)
-    data1 = {"preg": preg, "gluco": gluco, "bp": bp, "skin": skin, "insu": insu, "bmi": bmi, "dpf": dpf, "age": age}
-    data = [preg, gluco, bp, skin, insu, bmi, dpf, age]
-    #st.write(data)
+        col7, col8 = st.columns(2)
+        with col7:
+            gluco = st.slider('Glucose', 0, 200, 110)
+        with col8:
+            bmi = st.slider('BMI', 0.0, 60.0, 30.0)
+        col9, col10 = st.columns(2)
+        with col9:
+            dpf = st.slider('Diabetes Pedigree Function', 0.0, 2.0, 0.08)
+        with col10:
+            skin = st.slider('Skin Thickness', 1, 95, 1)
+        col9, col10 = st.columns(2)
+        with col9:
+            bp = st.slider('Blood Pressure', 0, 100, 70)
 
-    data_dict = {"patientID": patientID, "name": name, "gender": gender, "preg": preg, "gluco": gluco, "bp": bp,
-                 "skin": skin, "insu": insu, "bmi": bmi, "dpf": dpf, "age": age}
+        # DATA
+        # st.write(patientID, name, age, gender, preg1, insu, gluco, bmi, dpf, skin, bp)
+        data = {"preg": preg, "gluco": gluco, "bp": bp, "skin": skin, "insu": insu, "bmi": bmi, "dpf": dpf, "age": age}
+        
+        data = {"preg":preg, "gluco":gluco, "bp":bp, "skin":skin, "insu":insu, "bmi":bmi, "dpf":dpf, "age":age}
+        #st.write(data)
+
+        data_dict = {"patientID": patientID, "name": name, "gender": gender, "preg": preg, "gluco": gluco, "bp": bp,
+                    "skin": skin, "insu": insu, "bmi": bmi, "dpf": dpf, "age": age}
+
+        features = pd.DataFrame(data, index=[0])
+        return features, data_dict
+    
+    features, data_dict= input_feature()
+
+
 
 
 
@@ -95,7 +105,7 @@ def app():
         model_path = "models/diabdetect_lda_83.sav"     
         model = pickle.load(open(model_path, "rb"))
         
-        pred_result = model.predict([data])
+        pred_result = model.predict(features)
         
         
           
