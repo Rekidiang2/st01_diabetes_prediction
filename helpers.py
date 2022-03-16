@@ -53,7 +53,7 @@ def app():
         with col2:
             name = st.text_input("Patient Name")
         with col3:
-            age = st.text_input("Age")
+            age = st.text_input("Age", '0')
         
         with col4:
             # user_input = st.text_input("Patient Name")
