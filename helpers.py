@@ -94,14 +94,13 @@ def app():
     if st.button("Detect"):
         model_path = "models/diabdetect_lda_83.sav"     
         model = pickle.load(open(model_path, "rb"))
-        try:
-            pred_result = model.predict([data])
-        except ValueError :
-            st.warning("MISSING VALUE : Insert patient Age")
+        
+        pred_result = model.predict([data])
+        
         
           
         
-        pred_result = model.predict([data])
+        #pred_result = model.predict([data])
         if pred_result[0] == 0:
             st.success("NEGATIVE : Not in prediabetic stage")
             data_dict["result"] = "Negative"
