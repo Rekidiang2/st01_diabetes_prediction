@@ -1,6 +1,7 @@
 import streamlit as st
 from helpers import home, app, analysis, all_data, about, footer, logo
 
+
 # Sidebar Configuration
 st.markdown(
     """

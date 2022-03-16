@@ -5,7 +5,7 @@ import pandas as pd
 #import cv2 as cv
 import pickle
 import sqlite3
-from database import create_db, insert_data
+from database import create_db, insert_data, retrive_data
 #import matplotlib as plt
 
 # == Logo
@@ -17,6 +17,7 @@ def logo():
     #resize image
     logo = logo.resize(size)
     st.sidebar.image(logo)
+
 
 # == Home =======================================================================================
 def home():
@@ -51,6 +52,7 @@ def app():
         name = st.text_input("Patient Name")
     with col3:
         age = st.text_input("Age")
+       
     with col4:
         # user_input = st.text_input("Patient Name")
         gender = st.radio('Gender', ['Female', 'Male'])
@@ -79,6 +81,7 @@ def app():
     # st.write(patientID, name, age, gender, preg1, insu, gluco, bmi, dpf, skin, bp)
     data1 = {"preg": preg, "gluco": gluco, "bp": bp, "skin": skin, "insu": insu, "bmi": bmi, "dpf": dpf, "age": age}
     data = [preg, gluco, bp, skin, insu, bmi, dpf, age]
+    #st.write(data)
 
     data_dict = {"patientID": patientID, "name": name, "gender": gender, "preg": preg, "gluco": gluco, "bp": bp,
                  "skin": skin, "insu": insu, "bmi": bmi, "dpf": dpf, "age": age}
@@ -86,14 +89,21 @@ def app():
 
 
     st.markdown("---")
+    
 
     if st.button("Detect"):
-        model_path = "models/diabdetect_lda_83.sav"
+        model_path = "models/diabdetect_lda_83.sav"     
         model = pickle.load(open(model_path, "rb"))
+        try:
+            pred_result = model.predict([data])
+        except ValueError :
+            st.warning("MISSING VALUE : Insert patient Age")
+        
+          
+        
         pred_result = model.predict([data])
-
         if pred_result[0] == 0:
-            st.success("Result is negative")
+            st.success("NEGATIVE : Not in prediabetic stage")
             data_dict["result"] = "Negative"
             result = data_dict['result']
             
@@ -101,16 +111,16 @@ def app():
             df = pd.DataFrame(data_dict, index=[0])
 
             # Inser result into database
-            #insert_data(data_dict, result, df)
+            insert_data(data_dict, result, df)
 
         else:
-            st.success("Result is Positive")
+            st.error("POSITIVE : In prediabetic stage see your physician ")
             data_dict["result"] = "Positive"
             result = data_dict["result"]
             df = pd.DataFrame(data_dict, index=[0])
 
             # Inser result into database
-            #insert_data(data_dict, result, df)
+            insert_data(data_dict, result, df)
 
 
 # == Analysis =============================================================================================
@@ -237,24 +247,8 @@ def analysis():
 # == All Result ===============================================================================================
 
 def all_data():
-    # Create your connection.
-    cnx = sqlite3.connect('diabetes_result.db')
-
-    df_all = pd.read_sql_query("SELECT * FROM patients", cnx)
-    df_neg = pd.read_sql_query("SELECT * FROM patients WHERE Result = 'Negative'", cnx)
-    df_pos = pd.read_sql_query("SELECT * FROM patients WHERE Result = 'Positive'", cnx)
-    menu = ["All Result", "Positive Result", "Negative Result"]
-    choice = st.radio("Menu", menu)
-
-    if choice == "All Result":
-        st.header("All Result")
-        st.dataframe(df_all)
-    elif choice == "Positive Result":
-        st.header("Positive Result")
-        st.dataframe(df_pos)
-    elif choice == "Negative Result":
-        st.header("Negative Result")
-        st.dataframe(df_neg)
+    # retrive data
+    retrive_data()
 
 
 # == About ======================================================================

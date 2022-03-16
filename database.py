@@ -1,5 +1,6 @@
 import sqlite3
 import streamlit as st
+import pandas as pd
 
 # CREATE DATABASE
 
@@ -55,5 +56,26 @@ def insert_data(data_dict, result, df):
     conn.commit()
     # close connection
     conn.close()
+
+def retrive_data():
+    # Create your connection.
+    cnx = sqlite3.connect('diabetes_result.db')
+
+    df_all = pd.read_sql_query("SELECT * FROM patients", cnx)
+    df_neg = pd.read_sql_query("SELECT * FROM patients WHERE Result = 'Negative'", cnx)
+    df_pos = pd.read_sql_query("SELECT * FROM patients WHERE Result = 'Positive'", cnx)
+    menu = ["All Result", "Positive Result", "Negative Result"]
+    choice = st.radio("Menu", menu)
+
+    if choice == "All Result":
+        st.header("All Result")
+        st.dataframe(df_all)
+    elif choice == "Positive Result":
+        st.header("Positive Result")
+        st.dataframe(df_pos)
+    elif choice == "Negative Result":
+        st.header("Negative Result")
+        st.dataframe(df_neg)
+
     
 
