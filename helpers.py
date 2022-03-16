@@ -5,6 +5,7 @@ import pandas as pd
 #import cv2 as cv
 import pickle
 import sqlite3
+from database import create_db, insert_data
 #import matplotlib as plt
 
 # == Logo
@@ -39,33 +40,10 @@ def home():
 # == App ======================================================================================
 def app():
     # create data base
-    # conn = sqlite3.connect(':memory:')  #temporary data base
-    conn = sqlite3.connect('diabetes_result.db')
+    #create_db()
 
-    # create table
 
-    c = conn.cursor()  # create a cursor
-    # data type : NULL, INTEGER, REAL, TEXT, BLOB
-
-    '''
-    c.execute("""CREATE TABLE patients(
-    PatientID text,
-    Name text, 
-    Age text, 
-    Gender text,
-    Pregnancies integer, 
-    Glucose real,
-    Insulin real,
-    BMI real,
-    BP real,
-    DPF real,
-    SkinTickness integer,
-    Result text
-
-    )""")
-
-    '''
-    # --------------------------------------------------------------------------
+    # Data input --------------------------------------------------------------------------
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         patientID = st.text_input("Patient ID")
@@ -105,18 +83,7 @@ def app():
     data_dict = {"patientID": patientID, "name": name, "gender": gender, "preg": preg, "gluco": gluco, "bp": bp,
                  "skin": skin, "insu": insu, "bmi": bmi, "dpf": dpf, "age": age}
 
-    # FOR DATABASE
-    patientID = str(data_dict['patientID'])
-    name = data_dict['name']
-    age = data_dict['age']
-    gender = data_dict['gender']
-    preg = data_dict['preg']
-    gluco = data_dict['gluco']
-    bp = data_dict['bp']
-    skin = data_dict['skin']
-    insu = data_dict['insu']
-    bmi = data_dict['bmi']
-    dpf = data_dict['dpf']
+
 
     st.markdown("---")
 
@@ -129,14 +96,12 @@ def app():
             st.success("Result is negative")
             data_dict["result"] = "Negative"
             result = data_dict['result']
+            
             # st.write(data_dict['patientID'], data_dict['name'], data_dict['gender'], data_dict['preg'], data_dict['gluco'], data_dict['bp'],data_dict['skin'], data_dict['insu'], data_dict['bmi'], data_dict['dpf'], data_dict['age'], data_dict['Result'])
             df = pd.DataFrame(data_dict, index=[0])
 
-            param = (patientID, name, age, gender, preg, gluco, bp, skin, insu, bmi, dpf, result)
-            c.execute("INSERT INTO patients VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", param)
-            st.write("Result Details : ")
-            st.table(df)
-            # insert data
+            # Inser result into database
+            #insert_data(data_dict, result, df)
 
         else:
             st.success("Result is Positive")
@@ -144,15 +109,8 @@ def app():
             result = data_dict["result"]
             df = pd.DataFrame(data_dict, index=[0])
 
-            param = (patientID, name, age, gender, preg, gluco, bp, skin, insu, bmi, dpf, result)
-            c.execute("INSERT INTO patients VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", param)
-            st.write("Result Details : ")
-            st.table(df)
-
-        # commit our command
-        conn.commit()
-        # close connection
-        conn.close()
+            # Inser result into database
+            #insert_data(data_dict, result, df)
 
 
 # == Analysis =============================================================================================
