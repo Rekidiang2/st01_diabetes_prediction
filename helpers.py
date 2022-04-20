@@ -285,16 +285,17 @@ def about():
 
 # == Footer ==========================================================================================
 def footer():
+    st.markdown("""---""")
+   
     footerr = """
-            <div style="background-color:blue;padding:1px">
-            <h4 style="color:white;text-align:center;">Kiese Diangebeni Reagan </h4>
-            <h5 style="color:red;text-align:center;"> = Data Science Analyst =</h5>
-            <h3 style="color:white;text-align:center;"><a href:"https://kiese.tech>www.kiese.tech</a></h3>
-
+            <div style="background-color:black;padding:1px">
+            <h5 style="color:white;text-align:center;">My name is Kiese Diangebeni Reagan</h5>
+            <p style="color:white;text-align:center;font-size:14px;">I'm Data Science Analyst, technology passionate person, Artificial Intelligence enthusiast and lifelong learner. </p>
             
             <p style="color:red;text-align:center;">
+            <a href="https://kiese.tech">www.kiese.tech</a> -
             <a href="https://twitter.com/ReaganKiese">Twitter</a> - 
-            <a href="">Linkedin</a> - 
+            <a href="https://www.linkedin.com/in/kiese-diangebeni-reagan-82992216a/">Linkedin</a> - 
             <a href="https://github.com/RekidiangData-S">Github</a> - 
             <a href="https://medium.com/@rkddatas">Medium</a> - 
             <a href="https://www.kaggle.com/rekidiang">Kaggle</a></p>
