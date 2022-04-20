@@ -85,27 +85,13 @@ In healthcare field diagnose a problem early offer more chance for traitement an
 + readme image 
 + social media preview (Setting -> preview)
 
-## 6. About Me
 ___
-
-### I'm a data and technology passionate person, Artificial Intelligence enthusiast 
-
-> My Website [Click Here](https://kiesediangebeni/github.io)
-
-> Social Network
-
-[![alt text][1.1]][1]
-[![alt text][2.1]][2]
-[![alt text][3.1]][3]
-[![alt text][4.1]][4]
-
-[1.1]: https://i.imgur.com/oFsAcMx.png (facebook icon with padding)
-[2.1]: https://i.imgur.com/YCdR3o9.png (twitter icon with padding)
-[3.1]: https://i.imgur.com/5BWvIrF.png (github icon with padding)
-[4.1]: https://i.imgur.com/UA7Oh6z.png (medium icon with padding)
-
-[1]: http://www.facebook.com/reagan.kiese.37
-[2]: https://twitter.com/ReaganKiese
-[3]: https://github.com/RekidiangData-S
-[4]: https://medium.com/@rkddatas
-
+## My name is Kiese Diangebeni Reagan
+#### I'm **Data Science Analyst**, technology passionate person, Artificial Intelligence enthusiast and lifelong learner.
+Let get in touch : <a href="https://kiese.tech">www.kiese.tech</a>
+<a href="https://github.com/Rekidiang2"><img src="https://github.com/Rekidiang2/Rekidiang2/blob/main/leslogos/github-logo.png"></a>
+<a href="https://www.linkedin.com/in/kiese-diangebeni-reagan-82992216a/"><img src="https://github.com/Rekidiang2/Rekidiang2/blob/main/leslogos/linkedin-logo.png"></a>
+<a href="https://twitter.com/ReaganKiese"><img src="https://github.com/Rekidiang2/Rekidiang2/blob/main/leslogos/twitter-logo.png"></a>
+<a href="http://www.facebook.com/reagan.kiese.37"><img src="https://github.com/Rekidiang2/Rekidiang2/blob/main/leslogos/facebook-logo.png"></a>
+<a href="https://medium.com/@rkddatas"><img src="https://github.com/Rekidiang2/Rekidiang2/blob/main/leslogos/medium-logo.png"></a>                                    
+----
