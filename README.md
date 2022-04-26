@@ -1,4 +1,4 @@
-# Diabates Prediction (Web App with Streamlit)
+# Diabates Prediction (<a href="https://share.streamlit.io/rekidiang2/st01_diabetes_prediction/main/app.py">Web App</a>)
 <img src="images/diabete_cover.png" width="1000" height="300" />
 
 
